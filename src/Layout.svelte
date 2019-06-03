@@ -28,6 +28,7 @@ const logout = () => {
         </h1>
 
     </header>
+
     <main>
         <slot></slot>
     </main>
@@ -50,9 +51,11 @@ const logout = () => {
     padding: 0;
     margin: 0;
     font-family: 'Bangers', sans-serif;
+    font-size: 18px;
 
     --pink: #DD00C7;
     --lightgrey: #F9F9F9;
+    --yellow: #fff200;
 }
 
 :global(*) {
@@ -87,6 +90,8 @@ main {
     justify-content: center;
     align-items: center;
     padding-bottom: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
 }
 
 footer {

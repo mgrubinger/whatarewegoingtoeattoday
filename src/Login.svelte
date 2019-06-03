@@ -7,9 +7,12 @@
     import { authState } from 'rxfire/auth';
 
     let myuser;
+    $: loading = true;
+
     const unsubscribe = authState(auth).subscribe(u => {
         myuser = u
         user.set(u);
+        loading = false;
     });
 
     function login() {
@@ -37,15 +40,14 @@ p.to-add {
     margin-top: 0.2em;
 }
 button {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-    color: var(--pink);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
 }
 
 </style>
 
 <section>
-    {#if !myuser}
+    {#if !myuser && !loading}
 
         <p class="tagline">
             Can't decide what to eat?

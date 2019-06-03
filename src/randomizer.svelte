@@ -44,20 +44,32 @@ let getRandomFood = () => {
 </script>
 
 <style>
-.randomfood {
-    font-size: 6rem;
+.randomfoodemoji {
+    font-size: 8rem;
+}
+.randomizer-button {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    font-size: 4rem;
+}
+.randomizer-button[disabled] {
+    display: none;
+}
+
+.chosen-food {
+    font-size: 1.8rem;
 }
 </style>
 
 <section>
-    <button {disabled} on:click={go}>Shuffle!</button>
 
-    <div class="randomfood">
+    <div class="randomfoodemoji">
         {currentFoodEmoji}
     </div>
     
     {#if chosenFood}
-    <div in:fly="{{ y: 200, duration: 2000, opacity: 0, easing: cubicOut }}">
+    <div  class="chosen-food" in:fly="{{ y: 200, duration: 2000, opacity: 0, easing: cubicOut }}">
         <h1>{chosenFood.name}</h1>
         <p>
             {#if chosenFood.distance}Distance: {chosenFood.distance}<br/>{/if}
@@ -65,5 +77,7 @@ let getRandomFood = () => {
         </p>
 	</div>
     {/if}
+
+    <button class="randomizer-button" {disabled} on:click={go}>Shuffle!</button>
 
 </section>

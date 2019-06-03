@@ -51,8 +51,10 @@ input[type="range"] {
 }
 
 button {
-	background-color: #f4f4f4;
+	background-color: var(--yellow);
 	outline: none;
+	border: none;
+	color: #000;
 }
 
 button:active {

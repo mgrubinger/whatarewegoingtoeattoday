@@ -15,17 +15,11 @@
   // We don’t want to clobber the local DB, so we debounce saving on every keystroke
   const debouncedUpdateText = debounce(updateText, 500)
 
-  // function toggleStatus() {
-  //   dispatch('update', {
-  //     eat: {
-  //       ...eat
-  //     }
-  //   })
-  // }
-
   export let name
   export let distance
   export let price
+
+  export let eat;
 
 </script>
 
@@ -39,12 +33,28 @@
     margin-left: 0.75em;
     padding: 0;
   }
+
+  li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  li button {
+    background-color: transparent;
+    border: none;
+  }
+  li p {
+    width: 100%;
+    font-size: 1.3rem;
+  }
 </style>
 
-<li transition:fade>
-  <!-- <input type='text' on:keyup={debouncedUpdateText} bind:value={eat.text}> -->
-  <strong>{name}</strong>
-  {distance}
-  {price}
-  <button on:click={remove}>❌</button>
+<li>
+  <p>
+    <strong>{eat.name}</strong>
+    {#if eat.distance}<br/><small>Distance: {eat.distance}</small>{/if}
+    {#if eat.price}<br/><small>Price: {eat.price}</small>{/if}
+  </p>
+  <button on:click={remove}>🗑</button>
 </li>
