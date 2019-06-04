@@ -2,10 +2,11 @@
 import {random} from 'lodash'
 import {fly, fade} from 'svelte/transition'
 import { cubicOut } from 'svelte/easing';
+import Emojis from './emojis.js'
 
 export let foodList;
 
-let foodEmojiList = ["🥙", "🍔", "🥗", "🥪", "🥯", "🍣", "🍲", "🍌", "🌭", "🥑", "🌯", "🍳", "🌽", "🦴", "🍝"]
+let foodEmojiList = Emojis;
 $: currentFoodEmoji = " ";
 
 let disabled = false;
@@ -39,6 +40,20 @@ let go = () => {
 
 let getRandomFood = () => {
     chosenFood = foodList[random(0, foodList.length-1)];
+    chosenFood = {...chosenFood};
+    chosenFood.metastring = stringifyMeta(chosenFood);
+}
+
+let stringifyMeta = ({price, distance}) => {
+    if(price == "cheap" && distance == "near") return "Cheap and closeby!"
+    if(price == "cheap" && distance == "medium") return "Cheap and not too far away!"
+    if(price == "cheap" && distance == "far") return "Cheap, but quite the walk!"
+    if(price == "pricey" && distance == "near") return "Near, but quite pricey!"
+    if(price == "pricey" && distance == "medium") return "Not too far, but quite pricey!"
+    if(price == "pricey" && distance == "far") return "Pricey and far away..."
+    if(price == null && distance == null) return ``
+    if(price != null && distance == null) return `Price: ${price}`
+    if(price == null && distance != null) return `Distance: ${distance}`
 }
 
 </script>
@@ -69,13 +84,12 @@ let getRandomFood = () => {
     </div>
     
     {#if chosenFood}
-    <div  class="chosen-food" in:fly="{{ y: 200, duration: 2000, opacity: 0, easing: cubicOut }}">
-        <h1>{chosenFood.name}</h1>
-        <p>
-            {#if chosenFood.distance}Distance: {chosenFood.distance}<br/>{/if}
-            {#if chosenFood.price}Price: {chosenFood.price}{/if}
-        </p>
-	</div>
+        <div  class="chosen-food" in:fly="{{ y: 200, duration: 2000, opacity: 0, easing: cubicOut }}">
+            <h1>{chosenFood.name}</h1>
+            <p>
+                {chosenFood.metastring}
+            </p>
+        </div>
     {/if}
 
     <button class="randomizer-button" {disabled} on:click={go}>Shuffle!</button>
