@@ -5,7 +5,6 @@ const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
 require('dotenv').config()
-console.log(process.env.APP_ENV)
 
 module.exports = {
 	entry: {

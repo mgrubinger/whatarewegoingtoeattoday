@@ -1,6 +1,6 @@
 <script>
-import {random} from 'lodash'
-import {fly, fade} from 'svelte/transition'
+import { random } from 'lodash'
+import { fly } from 'svelte/transition'
 import { cubicOut } from 'svelte/easing';
 import Emojis from './emojis.js'
 

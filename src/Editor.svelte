@@ -1,10 +1,6 @@
 <script>
-  // import TodoItem from './TodoItem.svelte';
-  import EatItem from "./EatItem.svelte";
-  import { db } from "./firebase";
-  import { collectionData } from "rxfire/firestore";
-  import { startWith } from "rxjs/operators";
   import { eatsStore, user } from "./stores.js";
+  import EatItem from "./EatItem.svelte";
 
   let newEatText = "";
   let newEatDistance = null;

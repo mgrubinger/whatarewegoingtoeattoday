@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-  import { getContext } from "svelte";
   import { db } from "./firebase";
   import { collectionData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
