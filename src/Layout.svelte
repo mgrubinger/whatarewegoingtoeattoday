@@ -141,4 +141,13 @@ h1 {
     color: #fff;
 }
 
+@media (min-width: 600px) {
+    footer {
+        transform: skewY(-2deg) translateY(1.5rem);
+    }
+    header {
+        transform: skewY(-2deg) translateY(-2rem);
+    }
+}
+
 </style>

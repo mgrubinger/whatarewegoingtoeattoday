@@ -67,6 +67,8 @@ let stringifyMeta = ({price, distance}) => {
     height: 40vw;
     border-radius: 50%;
     font-size: 4rem;
+    max-width: 250px;
+    max-height: 250px;
 }
 .randomizer-button[disabled] {
     display: none;
