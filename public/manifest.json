@@ -1,0 +1,10 @@
+{
+    "name": "What are we going to eat today?",
+    "short_name": "Eats",
+    "theme_color": "#dd00c7",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/"
+  }
