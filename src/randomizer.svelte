@@ -77,6 +77,14 @@ let stringifyMeta = ({price, distance}) => {
 .chosen-food {
     font-size: 1.8rem;
 }
+
+.chosen-food h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.chosen-food p {
+    margin-top: 0.5em;
+}
 </style>
 
 <section>

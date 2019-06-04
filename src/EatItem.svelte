@@ -40,6 +40,10 @@
     align-items: center;
   }
 
+  li:nth-child(even) {
+      background-color: #efefef;
+  }
+
   li button {
     background-color: transparent;
     border: none;
