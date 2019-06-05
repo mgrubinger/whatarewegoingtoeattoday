@@ -18,6 +18,7 @@ module.exports = {
 		filename: '[name].js',
 		chunkFilename: '[name].[id].js'
 	},
+	performance: { hints: false },
 	module: {
 		rules: [
 			{
