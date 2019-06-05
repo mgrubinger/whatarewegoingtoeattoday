@@ -1,4 +1,5 @@
 <script>
+  import { db } from "./firebase";
   import { eatsStore, user } from "./stores.js";
   import EatItem from "./EatItem.svelte";
 
