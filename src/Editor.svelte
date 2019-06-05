@@ -8,7 +8,8 @@
   let uid = null;
 
   user.subscribe(value => {
-    uid = value.uid;
+    if(value.uid)
+      uid = value.uid;
   });
 
   function add() {

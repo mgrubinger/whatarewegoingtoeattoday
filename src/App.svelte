@@ -63,7 +63,7 @@
     <button class="toggle-mode-button" on:click={switchMode}>
       {#if mode == Randomizer}Edit Eats{:else}Back{/if}
     </button>
-    <svelte:component this={mode} foodList={eats}/>
+    <svelte:component this={mode} foodList={eats} on:goToEdit={switchMode}/>
   {/if}
 
 </Layout>

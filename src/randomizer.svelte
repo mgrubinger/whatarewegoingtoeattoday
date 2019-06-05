@@ -4,6 +4,8 @@ import { fly } from 'svelte/transition'
 import { cubicOut } from 'svelte/easing';
 import Emojis from './emojis.js'
 
+import { createEventDispatcher } from 'svelte'
+
 export let foodList;
 
 let foodEmojiList = Emojis;
@@ -12,6 +14,7 @@ $: currentFoodEmoji = " ";
 let disabled = false;
 $: chosenFood = null;
 
+const dispatch = createEventDispatcher()
 
 function rand(timeout) {
 
@@ -54,6 +57,10 @@ let stringifyMeta = ({price, distance}) => {
     if(price == null && distance == null) return ``
     if(price != null && distance == null) return `Price: ${price}`
     if(price == null && distance != null) return `Distance: ${distance}`
+}
+
+let goToEdit = () => {
+    dispatch('goToEdit')
 }
 
 </script>
@@ -102,6 +109,9 @@ let stringifyMeta = ({price, distance}) => {
         </div>
     {/if}
 
-    <button class="randomizer-button" {disabled} on:click={go}>Shuffle!</button>
-
+    {#if foodList.length > 0}
+        <button class="randomizer-button" {disabled} on:click={go}>Shuffle!</button>
+    {:else}
+        Start by <button on:click={goToEdit}>adding some eats</button>
+    {/if}
 </section>
