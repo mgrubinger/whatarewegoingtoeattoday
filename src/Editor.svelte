@@ -119,13 +119,17 @@
   <button type="submit">➕ Add Eat</button>
 </form>
 
-<hr />
+{#if $eatsStore.length}
 
-<h2>Existing Eats:</h2>
+  <hr />
 
-<ul class="existing-eats-list">
+  <h2>Existing Eats:</h2>
 
-  {#each $eatsStore as eat}
-    <EatItem {eat} on:remove={removeItem} />
-  {/each}
-</ul>
+  <ul class="existing-eats-list">
+
+    {#each $eatsStore as eat}
+      <EatItem {eat} on:remove={removeItem} />
+    {/each}
+  </ul>
+
+{/if}

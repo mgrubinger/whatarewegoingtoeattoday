@@ -41,7 +41,7 @@
 
   header {
     transform: skewY(-5deg) translateY(-2rem);
-    padding: 4rem 2rem 1rem 2rem;
+    padding: 3rem 2rem 0.8rem 2rem;
     background-color: var(--pink);
     position: sticky;
     top: 0;

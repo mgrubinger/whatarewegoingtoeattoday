@@ -18,6 +18,10 @@
   function login() {
     auth.signInWithPopup(googleProvider);
   }
+
+  function loginAnonym() {
+    auth.signInAnonymously();
+  }
 </script>
 
 
@@ -37,11 +41,16 @@
     margin-bottom: 3rem;
   }
   p.to-add {
-    margin-top: 0.2em;
+    margin-top: 1.2rem;
+    margin-bottom: 3rem;
   }
   button {
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+  .orrrr {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
   }
 </style>
 
@@ -50,7 +59,9 @@
   {#if !myuser && !loading}
     <p class="tagline">Can't decide what to eat?</p>
 
-    <button on:click={login}>Login</button>
+    <button on:click={login}>Login with Google</button>
+    <i class="orrrr">or</i>
+    <button on:click={loginAnonym}>Login anonymously</button>
     <p class="to-add">to add some eats</p>
   {/if}
 </section>
