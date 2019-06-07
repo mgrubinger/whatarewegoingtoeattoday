@@ -2,6 +2,8 @@
 
 Simple app to help decide what to eat for lunch
 
+[https://whatarewegoingtoeattoday.grooovinger.com/](https://whatarewegoingtoeattoday.grooovinger.com/)
+
 ## Get started
 
 ```bash
